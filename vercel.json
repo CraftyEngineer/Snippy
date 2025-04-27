@@ -2,23 +2,31 @@
     "version": 2,
     "builds": [
       {
-        "src": "frontend/**",
+        "src": "package.json",
         "use": "@vercel/static-build",
-        "config": { "distDir": "dist" }
+        "config": {
+          "distDir": "dist",
+          "installCommand": "npm install",
+          "buildCommand": "npm run build"
+        }
       },
       {
-        "src": "backend/api/**",
-        "use": "@vercel/python"
+        "src": "api/app.py",
+        "use": "@vercel/python",
+        "config": {
+            "flask": true,
+            "installCommand": "pip install -r requirements.txt"
+        }
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "backend/api/index.py"
+        "dest": "api/app.py"
       },
       {
         "src": "/(.*)",
-        "dest": "frontend/dist/$1"
+        "dest": "dist/$1"
       }
     ]
   }

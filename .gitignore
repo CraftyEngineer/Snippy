@@ -23,6 +23,9 @@ share/python-wheels/
 *.manifest
 *.spec
 .ipynb_checkpoints
+api/__pycache__/
+api/venv/
+*.env
 
 # Virtual Environments
 venv/
@@ -75,3 +78,6 @@ logs/
 
 # System Files
 Thumbs.db
+
+# Node
+node_modules/

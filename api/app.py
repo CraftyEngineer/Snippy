@@ -95,5 +95,10 @@ def generate_code():
 def health_check():
     return jsonify({'status': 'healthy'})
 
+def vercel_handler(request):
+    with app.test_request_context(path=request.path, method=request.method, headers=request.headers, data=request.body):
+        return app.full_dispatch_request()
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
