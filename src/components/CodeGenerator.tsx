@@ -19,7 +19,7 @@ const CodeGenerator: React.FC<CodeGeneratorProps> = ({ theme }) => {
     setGeneratedCode(null);
 
     try {
-      const response = await fetch('/api/app.py/generate-code', {
+      const response = await fetch('http://localhost:5000/generate-code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

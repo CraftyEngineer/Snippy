@@ -1,17 +1,20 @@
-import sys
 import os
-# sys.path.append(os.path.join(os.path.dirname(__file__), 'python'))
-# if '/var/task' in sys.path:
-#     sys.path.remove('/var/task')  # Fix Vercel's Python path conflict
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from groq import Groq
 from typing import Optional, Union, List, Dict
-
-
+from flask import send_from_directory
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  
+@app.route('/')
+def serve_root():
+    return send_from_directory('static', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory('static', path)
+
+
 
 # Initialize Groq client
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
