@@ -10,7 +10,7 @@
         "use": "@vercel/python",
         "config": {
           "runtime": "python3.9",
-          "installCommand": "mkdir -p python && pip install -r api/requirements.txt -t python",
+          "installCommand": "mkdir -p python && pip install -r api/requirements.txt",
           "includeFiles": "api/** python/**"
         }
       }
