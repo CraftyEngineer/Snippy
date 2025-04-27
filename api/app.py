@@ -6,9 +6,16 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'python'))
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from groq import Groq
+
 from typing import Optional, Union, List, Dict
 
+try:
+    from groq import Groq
+except ImportError:
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).parent / 'python'))
+    from groq import Groq
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
