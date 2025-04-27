@@ -16,7 +16,7 @@
     ],
     "routes": [
     {
-      "src": "/api/generate-code",
+      "src": "/api/app.py/generate-code",
       "dest": "api/app.py",
       "methods": ["POST"]
     },
