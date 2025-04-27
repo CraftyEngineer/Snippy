@@ -10,7 +10,7 @@
         "use": "@vercel/python",
         "config": {
           "runtime": "python3.9",
-          "installCommand": "rm -rf ./* && pip install --upgrade pip && pip install flask==2.2.5 groq==0.4.0 -t ."
+          "installCommand": "rm -rf ./* && pip install --upgrade pip && pip install flask groq -t ."
         }
       }
     ],
