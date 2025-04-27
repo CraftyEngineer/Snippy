@@ -7,6 +7,7 @@ from flask_cors import CORS
 import os
 from groq import Groq
 from typing import Optional, Union, List, Dict
+sys.path.append(os.path.join(os.path.dirname(__file__), 'python'))
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes

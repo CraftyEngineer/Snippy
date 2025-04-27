@@ -3,20 +3,15 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "dist",
-          "installCommand": "npm install",
-          "buildCommand": "npm run build"
-        }
+        "use": "@vercel/static-build"
       },
       {
         "src": "api/app.py",
         "use": "@vercel/python",
         "config": {
-            "runtime": "python3.9",
-            "installCommand": "python -m pip install --upgrade pip && pip install -r api/requirements.txt --target ./api",
-            "includeFiles": "api/**"
+          "runtime": "python3.9",
+          "installCommand": "mkdir -p python && pip install -r api/requirements.txt -t python",
+          "includeFiles": "api/** python/**"
         }
       }
     ],
@@ -24,10 +19,6 @@
       {
         "src": "/api/(.*)",
         "dest": "api/app.py"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "dist/$1"
       }
     ]
   }
