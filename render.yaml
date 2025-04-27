@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: snippy-backend
+    runtime: python
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GROQ_API_KEY
+        value: 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
+    staticSites:
+      - name: snippy-frontend
+        buildCommand: cd ../frontend && npm install && npm run build
+        publishPath: ../frontend/build

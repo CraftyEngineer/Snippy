@@ -1,0 +1,6 @@
+import {
+  require_coffeescript
+} from "./chunk-ZZT4QKVG.js";
+import "./chunk-G3PMV62Z.js";
+export default require_coffeescript();
+//# sourceMappingURL=coffeescript-YFONJGN2.js.map
