@@ -1,0 +1,37 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist",
+          "installCommand": "npm install",
+          "buildCommand": "npm run build"
+        }
+      },
+      {
+        "src": "./api/app.py",
+        "use": "@vercel/python",
+        "config": {
+          "runtime": "python3.9",
+          "installCommand": "pip install -r requirements.txt -t python",
+          "includeFiles": "./api/** python/**"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "./api/(.*)",
+        "dest": "./api/app.py",
+        "methods": ["GET", "POST"]
+      },
+      {
+        "src": "/(.*)",
+        "dest": "dist/$1",
+        "headers": {
+          "Cache-Control": "s-maxage=86400"
+        }
+      }
+    ]
+  }
