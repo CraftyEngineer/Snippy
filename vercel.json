@@ -14,8 +14,8 @@
         "src": "api/app.py",
         "use": "@vercel/python",
         "config": {
-            "flask": true,
-            "installCommand": "pip install -r requirements.txt"
+            "runtime": "python3.9",
+            "installCommand": "pip install -r requirements.txt --target ."
         }
       }
     ],

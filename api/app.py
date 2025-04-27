@@ -1,3 +1,7 @@
+import sys
+if '/var/task' in sys.path:
+    sys.path.remove('/var/task')  # Fix Vercel's Python path conflict
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
