@@ -12,11 +12,11 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
     }`}>
       <div className="flex flex-col md:flex-row items-center justify-center gap-4">
         <p className="text-sm">
-          © {new Date().getFullYear()} AI Code Assistant | Built with React & TailwindCSS
+          © {new Date().getFullYear()} | AI Code Assistant | Built by CraftyEngineer | Built with React & TailwindCSS | 
         </p>
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/CraftyEngineer/Snippy"
             target="_blank"
             rel="noopener noreferrer"
             className={`flex items-center gap-1 text-sm hover:${
